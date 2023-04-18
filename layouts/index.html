@@ -1,0 +1,7 @@
+ {{ define "main" }}
+    <header id="header">
+        <h1>{{ .Params.Pagetitle | safeHTML }}</h1>
+        <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+        {{.Content}}
+    </header>
+{{ end }}

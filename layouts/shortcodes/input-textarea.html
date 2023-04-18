@@ -1,0 +1,5 @@
+<p  class="{{ .Get "class" }} ">
+  <label for="{{.Get "id" }}">{{.Get "label" }}{{ if (.Get "required") }} <span aria-label="required" >*</span> {{ end }}</label>
+  <input nom=" {{.Get "nom" }}" id="{{.Get "id" }}" type="textarea" {{ if (.Get "required") }} required {{ end }} {{ if (.Get "required") }} aria-label="true" {{ end }}>
+  <span class="small" aria-label="polite"></span>
+</p>

@@ -1,0 +1,9 @@
+<nav>
+  <h2 class="logo"><a href="/">{{ .Site.Title}}</a></h2>
+  <menu id="menu">
+    {{ range .Site.Menus.main }}
+   <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+  {{ end }}
+  </menu>
+  {{- partial "hamburger.html" -}}
+</nav>

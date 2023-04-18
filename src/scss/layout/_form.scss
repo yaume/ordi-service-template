@@ -1,0 +1,34 @@
+@use "../utils" as *;
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 $espaceh;
+  label,footer {
+    width: 100%;
+    flex: 1 0 auto;
+  }
+  .telephone{
+  opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 0;
+            width: 0;
+            z-index: -1;}
+  footer{
+    font-size: $small;
+    font-style: italic;
+  }
+  @include breakpoint(tablette) {
+    grid-column: 2;
+    .nom,
+    .prenom, .email, .objet {
+      width: 40%;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

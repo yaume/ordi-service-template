@@ -1,0 +1,24 @@
+@use "../utils"as *;
+
+// Every Layout p.62
+* {
+  max-width: 60ch;
+}
+html,
+body,
+div,
+header,
+nav,
+nav *, //Permet une taille du logo superieur à 60 ch
+main,
+footer {
+  max-width: none;
+}
+//Rythme vertical ??
+main * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+main *+*, form * {
+  margin-top: $espacev;
+}

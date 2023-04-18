@@ -1,0 +1,106 @@
+@use "../utils" as *;
+
+nav {
+  display: flex;
+  padding: $espacev $espaceh 0;
+  .logo {
+    margin: auto;
+    width: 25vw;
+    color: hsla(0, 0%, 0%, 0%);
+    background: url(../img/logov.svg) no-repeat center;
+    background-size: contain;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: $principal;
+    margin-top: 0.7rem;
+    padding: 0;
+    &.open {
+      transform: translateY(11vh);
+      width: 50vw;
+      color: $blanc;
+      li {
+        position: relative;
+        &:after {
+          content: "";
+          display: block;
+          background: $secondaire;
+          height: calc($espacev / 2);
+          margin-top: $espacev;
+          // position: absolute;
+          // left: $espaceh;
+          // right: $espaceh;
+          // bottom: -0.25rem;
+        }
+      }
+    }
+  }
+
+  @include nav-link;
+
+  @include breakpoint(tablette) {
+    background-color: $principal;
+    justify-content: space-between;
+    padding: 0;
+    .logo {
+      font-size: initial;
+      margin: initial;
+      background: $blanc url(../img/logoh.svg) no-repeat left;
+      background-size: contain;
+      width: 50%;
+      border: solid $blanc;
+      // border-width: $espacev $espaceh 0;
+      // margin: calc($espacev * -1) calc($espaceh * -1) 0;
+      padding: $espacev 0 0 $espaceh;
+      background-origin: content-box;
+    }
+
+    menu {
+      position: unset;
+      top: unset;
+      right: unset;
+      width: initial;
+      height: initial;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-right: $espaceh;
+      background: initial;
+      color: $blanc;
+      font-family: $header-font;
+      font-size: $h4;
+      li{ 
+        position: relative;
+        &::after{
+          content: "";
+          display: block;
+          background: $secondaire;
+          height: $espacev;
+          margin-top: $espacev; 
+          position: absolute;
+          width: 0;
+          left: 50%;
+          transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+          
+        }
+        &:hover{
+          &::after{
+          left: 0;
+          width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

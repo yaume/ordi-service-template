@@ -1,0 +1,62 @@
+@use "sass:color";
+$breakpoints: (
+  'telehone':  767px,
+  'tablette': 992px,
+  'ordinateur':  1200px
+);
+$nbcol:15;
+$nbligne:3;
+
+$font-size:calc(1rem + 0.390625vw);
+$ratio:1.25;//Minor third
+$lineheight: 1.4;
+$body-font: 'League Spartan Light';
+$header-font: 'League Spartan Regular';
+$h5: $font-size;
+$h4: calc($h5 * $ratio);
+$h3: calc($h4 * $ratio);
+$h2: calc($h3 * $ratio);
+$h1: calc($h2 * $ratio);
+$small: calc($font-size / $ratio);
+$vsmall:calc($small / $ratio);
+$vvsmall:calc($vsmall / $ratio);
+
+$espacev:calc(#{$lineheight}rem / 2);
+$espaceh: 1rem;
+$rayon: 3px;
+
+@function convertion-hsla($couleur) {
+  $couleur: hsla(hue($couleur), saturation($couleur), lightness($couleur), 1);
+  @return $couleur;
+}
+$principal: hsla(231, 45%, 34%, 1);
+$secondaire: hsla(1, 79%, 50%, 1);
+$vert:hsla(62,50%,46%,1);
+$sec-fonce:convertion-hsla(scale-color($secondaire, $blackness: 25%));
+$sec-clair: convertion-hsla(scale-color($secondaire, $lightness: 95%));
+$noir: convertion-hsla(scale-color($secondaire, $blackness: 96%));
+$gris-fonce: convertion-hsla(scale-color($secondaire, $blackness: 86%));
+$gris-moyen: convertion-hsla(scale-color($principal, $whiteness: 85%));
+$blanc: convertion-hsla(scale-color($principal, $lightness: 98%));
+$vert-fonce: convertion-hsla(scale-color($vert,$saturation:50%, $lightness: -50%));
+$vert-clair: convertion-hsla(scale-color($vert, $lightness: 95%));
+
+// https://github.com/jonsuh/hamburgers
+// Settings
+// ==================================================
+$hamburger-padding-x : 0 !default;
+$hamburger-padding-y : 0 !default;
+$hamburger-layer-width : 1.25rem !default;
+$hamburger-layer-height : 2px;//2px !defaul
+$hamburger-layer-spacing : 2px;//6px !default
+$hamburger-layer-color : $noir !default;
+$hamburger-layer-border-radius : 2px !default;// 2px !default
+$hamburger-hover-opacity : 0.7 !default;
+$hamburger-active-layer-color : $hamburger-layer-color !default;
+$hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
+// To use CSS filters as the hover effect instead of opacity,
+// set $hamburger-hover-use-filter as true and
+// change the value of $hamburger-hover-filter accordingly.
+$hamburger-hover-use-filter : false !default;
+$hamburger-hover-filter : opacity(50%) !default;
+$hamburger-active-hover-filter: $hamburger-hover-filter !default;

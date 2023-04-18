@@ -1,0 +1,22 @@
+@use "variables" as *;
+
+@mixin breakpoint($name) {
+  @if not map-has-key($breakpoints,$name) {
+    @warn "Warning: `#{$name}` is not a valid breakpoint name.";
+  }
+  @else {
+      @media (min-width: map-get($breakpoints,$name)) {
+        @content;
+      }
+  }
+}
+@mixin nav-link{
+  li{
+    list-style: none;
+    padding: $espacev $espaceh;
+  }
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+}

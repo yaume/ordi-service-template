@@ -1,0 +1,34 @@
+{{- $element := split .Inner "--coupure--" -}}
+{{- index $element 0 | safeHTML -}}
+<form name="contact" id="{{ .Get "ID" }}" autocomplete="on" data-protect="contact" action="" method="post">
+  <label class="nom">Nom<sup><a aria-describedby="note" href="#note" tabindex="-1">*</a></sup> 
+  <input name="nom" id="nom" type="text" required aria-required="true" minlength="3" maxlength="10" pattern="[a-zA-ZÀ-ž \-]+" autocomplete="family-name" aria-describedby="erreur-nom">
+  <span id="erreur-nom" aria-label="polite"></span>
+  </label>
+  <label class="prenom">Prénom
+  <input  name="prenom" id="prenom" type="text" minlength="3" maxlength="25" pattern="[a-zA-ZÀ-ž \-]+" aria-describedby="erreur-prenom">
+  <span id="erreur-prenom" aria-label="polite"></span>
+  </label>
+   <label class="telephone">Téléphone
+  <input  name="telephone" id="telephone" type="tel"  pattern="[0-9 \-]+" tabindex="-1" autocomplete="off" aria-describedby="erreur-prenom">
+  <span id="erreur-prenom" aria-label="polite"></span>
+  </label>
+  <label class="email">Email<sup><a aria-describedby="note" href="#note" tabindex="-1">*</a></sup> 
+  <input  name="email" id="email" type="email" required aria-required="true" pattern="([a-z0-9]+(?:[._-][a-z0-9]+)*)@([a-z0-9]+(?:[.-][a-z0-9]+)*\.[a-z]{2,})" aria-describedby="erreur-email">
+  <span id="erreur-email" aria-label="polite"></span>
+  </label>
+   {{/*  <label class="objet">Objet<sup><a aria-describedby="note" href="#note"tabindex="-1">*</a></sup> 
+  <input  name="objet" id="objet" type="text" required aria-required="true" aria-describedby="erreur-objet">
+  <span id="erreur-objet" aria-label="polite"></span>  */}}
+  </label>
+  <label class="message">Message<sup><a aria-describedby="note" href="#note"tabindex="-1">*</a></sup> 
+  <textarea  name="message" id="message" required aria-required="true" rows="3" aria-describedby="erreur-message"></textarea>
+  <span id="erreur-message" aria-label="polite"></span>
+  </label>
+  {{- index $element 1 | safeHTML -}}
+  <input type="submit" value="Envoyer">
+  <footer>
+    <p id="note">Les éléments marqués d'un astérisque<span>*</span>sont nécessaires</p>
+  </footer>
+</form>
+ 

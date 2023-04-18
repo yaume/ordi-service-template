@@ -1,0 +1,120 @@
+@use "../utils"as *;
+@use "sass:color";
+
+input[type],
+textarea {
+  line-height: 1.4;
+  background-color: $blanc;
+  border: 1px solid transparent;
+  border-bottom-color: $noir;
+  padding: 0 $espaceh;
+  width: 100%;
+  margin: 0;
+
+  // focus override
+  &:focus-visible {
+    outline: 0;
+    background-color: $blanc;
+    border: 1px solid $noir;
+    border-bottom-width: 2px;
+  }
+}
+
+textarea {
+  &::-webkit-resizer {
+    display: none;
+  }
+}
+
+input[type="submit"] {
+  width: fit-content;
+  text-align: center;
+  border-radius: $rayon;
+  font-family: $body-font;
+  margin-top: $espacev;
+  background-color: $blanc;
+  border: 1px solid $principal;
+  color: $principal;
+  cursor: pointer;
+  padding: $espacev $espaceh;
+  height: fit-content;
+
+  &:hover {
+    color: $blanc;
+    background-color: $principal;
+  }
+
+  &.desactive {
+    border: 1px solid fade-out($principal, 0.5);
+    color: fade-out($principal, 0.5);
+    cursor: not-allowed;
+
+    &:hover {
+      color: initial;
+      background-color: initial;
+    }
+  }
+
+  &.active {
+    color: $principal;
+    cursor: pointer;
+
+    &:hover {
+      color: $blanc;
+      background-color: $principal;
+    }
+  }
+}
+
+label {
+  sup {
+    color: $sec-fonce;
+    font-size: 1.2em;
+    top: 0;
+  }
+  span{
+    font-size: $small;
+    font-style: italic;
+    display: inline-block;
+  }
+  &.valide {
+
+    input[type],
+    textarea {
+      border-color: $vert-fonce;
+      border-width: 2px;
+      border-radius: $rayon;
+      background-color: $vert-clair;
+      &:focus-visible {
+        border-color: $vert-fonce;
+        border-width: 2px;
+        background-color: $vert-clair;
+      }
+    }
+  }
+
+  &.erreur {
+    color: $sec-fonce;
+
+    input[type],
+    textarea {
+      border-color: $sec-fonce;
+      border-width: 2px;
+      border-radius: $rayon;
+      background-color: $sec-clair;
+
+      &:focus-visible {
+        border-color: $sec-fonce;
+        border-width: 2px;
+        background-color: $sec-clair;
+      }
+    }
+  }
+}
+
+#note {
+  span {
+    color: $sec-fonce;
+    font-size: 1.2em;
+  }
+}

@@ -1,0 +1,51 @@
+@use "../utils" as *;
+
+html {
+  // Footer en bas https://dev.to/niorad/keeping-the-footer-at-the-bottom-with-css-grid-15mf
+  height: 100%;
+}
+body {
+  // Footer en bas
+  min-height: 100%;
+  display: grid;
+  grid-gap: #{$lineheight}rem;
+  // Footer en bas et header min-content
+  grid-template-rows: auto 1fr auto;
+  &.accueil{
+    grid-gap: 0;
+    header{
+       grid-column: 1 / calc(#{$nbcol} + 1);
+    }
+  }
+}
+// header,
+// nav,
+// main,
+// footer {
+//   grid-column: 1 / calc(#{$nbcol} + 1);
+// }
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: $espaceh;
+  padding: 0 $espaceh;
+  &.open {
+    transform: translateX(-50vw);
+  }
+  @include breakpoint(tablette) {
+    grid-template-columns: repeat(#{$nbcol}, 1fr);
+    &.accueil{
+     grid-template-columns: repeat(2, 1fr);
+     grid-gap: 0;
+    }
+     &.services{
+     grid-template-columns: repeat(5, 1fr);
+    }
+     &.contact{
+     grid-template-columns: auto 60ch auto;
+    }
+  }
+  &.accueil {
+    padding: 0;
+  }
+}
