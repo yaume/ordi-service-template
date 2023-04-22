@@ -30,14 +30,16 @@ $rayon: 3px;
   @return $couleur;
 }
 $principal: hsla(231, 45%, 34%, 1);
-$secondaire: hsla(1, 79%, 50%, 1);
+$secondaire: hsla(1, 64%, 31%, 1);
 $vert:hsla(62,50%,46%,1);
 $sec-fonce:convertion-hsla(scale-color($secondaire, $blackness: 25%));
 $sec-clair: convertion-hsla(scale-color($secondaire, $lightness: 95%));
-$noir: convertion-hsla(scale-color($secondaire, $blackness: 96%));
+$noir: convertion-hsla(scale-color($principal, $blackness: 96%));
 $gris-fonce: convertion-hsla(scale-color($secondaire, $blackness: 86%));
 $gris-moyen: convertion-hsla(scale-color($principal, $whiteness: 85%));
-$blanc: convertion-hsla(scale-color($principal, $lightness: 98%));
+// $blanc: convertion-hsla(scale-color($principal, $lightness: 98%));
+$blanc: convertion-hsla(adjust-color($secondaire,$saturation:-54%,$lightness:64%));
+// $blanc: hsla(1,10%,95%,1);
 $vert-fonce: convertion-hsla(scale-color($vert,$saturation:50%, $lightness: -50%));
 $vert-clair: convertion-hsla(scale-color($vert, $lightness: 95%));
 

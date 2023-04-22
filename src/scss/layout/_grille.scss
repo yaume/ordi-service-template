@@ -34,12 +34,9 @@ main {
   }
   @include breakpoint(tablette) {
     grid-template-columns: repeat(#{$nbcol}, 1fr);
-    &.accueil{
+    &.accueil, &.merci, &.services{
      grid-template-columns: repeat(2, 1fr);
      grid-gap: 0;
-    }
-     &.services{
-     grid-template-columns: repeat(5, 1fr);
     }
      &.contact{
      grid-template-columns: auto 60ch auto;
